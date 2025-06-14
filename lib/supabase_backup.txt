@@ -94,21 +94,3 @@ export const mockUserProfile = {
   goals: ["muscle", "strength"],
   created_at: new Date().toISOString(),
 }
-
-// Helper function to check if we're in preview mode
-export const isPreview = () => {
-  // If we have both real environment variables, we're NOT in preview mode
-  const hasRealSupabaseUrl = !!process.env.NEXT_PUBLIC_SUPABASE_URL
-  const hasRealSupabaseKey = !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  
-  const isProduction = hasRealSupabaseUrl && hasRealSupabaseKey
-  
-  console.log("Preview mode detection:", {
-    hasRealSupabaseUrl,
-    hasRealSupabaseKey,
-    isProduction,
-    finalResult: !isProduction,
-  })
-  
-  return !isProduction
-}
