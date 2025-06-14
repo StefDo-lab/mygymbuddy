@@ -16,6 +16,15 @@ Your project is live at:
 
 **[https://vercel.com/stefandorfstetter1-8090s-projects/v0-fitness-app-design](https://vercel.com/stefandorfstetter1-8090s-projects/v0-fitness-app-design)**
 
+## Running locally
+
+Install dependencies and start the development server to run the project on your machine:
+
+```bash
+pnpm install
+pnpm dev
+```
+
 ## Build your app
 
 Continue building your app on:
