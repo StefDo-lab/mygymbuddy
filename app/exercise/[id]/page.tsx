@@ -12,7 +12,7 @@ export default function ExercisePage({ params }: { params: { id: string } }) {
     name: "Push-ups",
     category: "Upper Body",
     target: "Chest, Shoulders, Triceps",
-    description: "A classic bodyweight exercise that works multiple muscle groups simultaneously.",
+    description: "A great bodyweight exercise that works multiple muscle groups simultaneously.",
     instructions: [
       "Start in a plank position with your hands slightly wider than shoulder-width apart.",
       "Lower your body until your chest nearly touches the floor.",
