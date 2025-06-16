@@ -25,6 +25,15 @@ pnpm install
 pnpm dev
 ```
 
+## Running tests
+
+The project uses [Vitest](https://vitest.dev/) for unit tests. After installing
+dependencies, run:
+
+```bash
+pnpm test
+```
+
 ## Build your app
 
 Continue building your app on:

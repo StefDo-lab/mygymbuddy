@@ -30,10 +30,20 @@ export default function AuthPage() {
     const checkSession = async () => {
       try {
         const { data } = await supabase.auth.getSession()
+
         if (data.session) {
-          console.log("User already has a session")
-          // If user already has a session, redirect to home
-          router.push("/")
+          // Confirm that the stored session is still valid
+          const { data: userData, error } = await supabase.auth.getUser()
+
+          if (userData?.user && !error) {
+            console.log("User already has a valid session")
+            router.push("/")
+            return
+          }
+
+          // Stale session found - clear it
+          console.log("Stale session detected, signing out")
+          await supabase.auth.signOut()
         }
       } catch (err) {
         console.error("Error checking session:", err)
