@@ -29,20 +29,18 @@ export default function AuthPage() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const { data } = await supabase.auth.getSession()
+        const { data: sessionData } = await supabase.auth.getSession()
 
-        if (data.session) {
-          // Confirm that the stored session is still valid
+        if (sessionData.session) {
+          // Confirm the stored session is still valid
           const { data: userData, error } = await supabase.auth.getUser()
 
           if (userData?.user && !error) {
-            console.log("User already has a valid session")
-            router.push("/")
+            router.replace("/")
             return
           }
 
           // Stale session found - clear it
-          console.log("Stale session detected, signing out")
           await supabase.auth.signOut()
         }
       } catch (err) {
